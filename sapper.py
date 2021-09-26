@@ -137,14 +137,34 @@ class Sapper:
 # print(message.decode('utf8'))
 cls = Sapper(10, 10, 10)
 # exit(0)
+print("Введите высоту и ширину поля и кол-во бомб")
+inp = input()
+try:
+    h, w, b= map(int, inp.split())
+except:
+    print('Неверные аргументы')
+    exit(0)
+if h * w < b:
+    print('Неверное кол-во бомб')
+    exit(0)
+cls = Sapper(w, h, b)
 while True:
-    # inp = input()
+    inp = input()
+    if len(inp.split()) != 3:
+        print("Неверное число аргументов")
+        continue
     try:
-        x, y, act = map(str, input().split())
+        
+        x, y, act = map(str, inp.split())
+        
         x = int(x)
         y = int(y)
-        act = int(act)
-
+        # act = int(act)
+        # act = 0 if act == "Open" else 1
+        if act not in ["Open", "Flag"]:
+            print('Неверная команда')
+            continue
+        act = 0 if act == "Open" else 1
         ret = cls.turn(x, y, act)
         if ret == -1:
             print('GAME OVER!!!!!!!!!!!!!!!')

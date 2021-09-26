@@ -11,3 +11,4 @@
 Выбор сделан в пользу tensorflow, полськоку он умеет хороший интерфейс для инференса на мобильных устройствах.
 
 Датасет для обучения: https://www.kaggle.com/crawford/cat-dataset
+![Screenshot](index.png)
